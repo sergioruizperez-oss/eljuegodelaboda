@@ -1,6 +1,4 @@
 // Fecha/hora objetivo de la cuenta atrás
-// 21 septiembre 2025, 14:00 hora de Madrid (CET/CEST depende del horario de verano)
-// En JavaScript: meses van de 0 a 11 (septiembre = 8)
 const targetDate = new Date("2025-09-21T14:00:00+02:00");
 
 const countdownEl = document.getElementById("countdown");
@@ -54,13 +52,8 @@ function updateCountdown() {
 }
 
 function mostrarMensajeFinal() {
-  tituloEl.textContent = "¡Ya ha llegado el momento!";
-  countdownEl.textContent = "";
-  mensajeEl.classList.remove("hidden");
-  mensajeEl.innerHTML = `
-    <p>Únete al grupo de WhatsApp:</p>
-    <p><a href="https://chat.whatsapp.com/XXXX" target="_blank">Entrar al grupo</a></p>
-  `;
+  // Redirigir automáticamente a la página final
+  window.location.href = "final.html";
 }
 
 const timer = setInterval(updateCountdown, 1000);
