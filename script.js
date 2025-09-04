@@ -1,11 +1,13 @@
 // Fecha/hora objetivo de la cuenta atrás
-const targetDate = new Date(2025, 8, 5, 12, 0, 0); // 5 septiembre 2025 12:00
+// 21 septiembre 2025, 14:00 hora de Madrid (CET/CEST depende del horario de verano)
+// En JavaScript: meses van de 0 a 11 (septiembre = 8)
+const targetDate = new Date("2025-09-21T14:00:00+02:00");
 
 const countdownEl = document.getElementById("countdown");
 const mensajeEl = document.getElementById("mensaje");
 const tituloEl = document.getElementById("titulo");
 
-// Lista de frases sobre la paciencia (extraídas de psicologiaymente.com)
+// Lista de frases sobre la paciencia
 const frases = [
   "La paciencia es amarga, pero sus frutos son dulces. (Jean-Jacques Rousseau)",
   "La paciencia es la fortaleza del débil y la impaciencia, la debilidad del fuerte. (Immanuel Kant)",
