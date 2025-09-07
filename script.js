@@ -1,11 +1,9 @@
-// Fecha/hora objetivo de la cuenta atrás
 const targetDate = new Date("2025-09-21T14:00:00+02:00");
 
 const countdownEl = document.getElementById("countdown");
 const mensajeEl = document.getElementById("mensaje");
 const tituloEl = document.getElementById("titulo");
 
-// Lista de frases sobre la paciencia
 const frases = [
   "La paciencia es amarga, pero sus frutos son dulces. (Jean-Jacques Rousseau)",
   "La paciencia es la fortaleza del débil y la impaciencia, la debilidad del fuerte. (Immanuel Kant)",
@@ -17,7 +15,6 @@ const frases = [
   "La paciencia es la compañera de la sabiduría. (San Agustín)"
 ];
 
-// Seleccionar una cita aleatoria
 const cita = frases[Math.floor(Math.random() * frases.length)];
 
 function updateCountdown() {
@@ -52,7 +49,6 @@ function updateCountdown() {
 }
 
 function mostrarMensajeFinal() {
-  // Redirigir automáticamente a la página final
   window.location.href = "final.html";
 }
 
