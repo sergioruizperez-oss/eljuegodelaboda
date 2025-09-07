@@ -1,4 +1,4 @@
-const targetDate = new Date("2025-09-07T14:10:00+02:00");
+const targetDate = new Date("2025-09-21T14:00:00+02:00");
 
 const countdownEl = document.getElementById("countdown");
 const mensajeEl = document.getElementById("mensaje");
