@@ -5,12 +5,10 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
-  /* QUITAR align-items: center; */
-  align-items: flex-start; /* alinear arriba */
+  align-items: flex-start; /* pegado arriba */
   min-height: 100vh;
 }
 
-/* Añadimos un pequeño margen arriba al container por estética */
 .container {
   background: #ffffff;
   padding: 25px 20px;
@@ -19,5 +17,44 @@ body {
   max-width: 480px;
   width: 100%;
   text-align: left;
-  margin-top: 20px; /* controla lo pegado que queda arriba */
+  margin-top: 20px;
 }
+
+/* Título "¡Cotilla!" más grande y centrado */
+#titulo {
+  text-align: center;
+  font-size: 2.2em;   /* más grande */
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+#countdown {
+  font-size: 1.2em;
+  margin: 20px 0;
+  line-height: 1.4;
+  color: #34495e;
+  white-space: pre-line;
+}
+
+#mensaje {
+  font-size: 1.1em;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: #1a73e8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@
