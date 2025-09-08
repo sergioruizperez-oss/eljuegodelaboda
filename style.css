@@ -1,154 +1,104 @@
-/* style.css */
-
 /*
-  Base Styles
+  This stylesheet uses a modern, elegant color palette with teal, gold, and dark gray.
+  The design is clean and focuses on readability and visual appeal.
 */
+
+/* --- General Styles --- */
+
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #F8F4F0; /* A warmer, cream background */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #F7F9FC; /* A very light gray background */
+  color: #343a40; /* A dark gray for main text */
   margin: 0;
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
 }
 
 .container {
   background: #ffffff;
-  padding: 25px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Slightly more prominent shadow */
-  max-width: 480px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
   width: 100%;
-  text-align: left;
-  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #e9ecef;
 }
 
-/*
-  Typography and Colors
-*/
+/* --- Typography --- */
+
 h1, h2, h3 {
-  font-family: 'Playfair Display', serif; /* A more elegant serif font for headings */
-  color: #3D2B2B; /* A deep, warm brown */
+  font-family: 'Georgia', serif; /* A classic serif font */
+  color: #212529; /* A very dark gray for headings */
 }
 
 p {
-  color: #5C4B4B; /* A slightly lighter warm brown for body text */
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-/*
-  Header Section (index.html)
-*/
+/* --- index.html (Countdown Page) Styles --- */
+
 #titulo {
-  text-align: center;
-  font-size: 2.5em; /* A bit larger */
+  font-size: 2.8em;
   font-weight: bold;
-  color: #8D6E63; /* A warm, inviting color */
-  margin-bottom: 25px;
+  color: #17a2b8; /* A vibrant teal */
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
-/*
-  Countdown and Quote (index.html)
-*/
 #countdown {
-  font-size: 1.4em;
-  margin: 25px 0;
+  font-size: 1.6em;
+  margin: 30px 0;
   line-height: 1.5;
-  color: #5C4B4B;
+  color: #495057;
   white-space: pre-line;
-  text-align: center;
   font-weight: 500;
 }
 
-#countdown .quote {
+.quote {
   display: block;
   font-style: italic;
-  font-size: 0.8em;
-  margin-top: 15px;
-  color: #7A6969;
-}
-
-/*
-  Final Message (final.html)
-*/
-#mensaje {
-  font-size: 1.1em;
+  font-size: 1em;
   margin-top: 20px;
-  color: #5C4B4B;
+  color: #6c757d; /* A subtle gray for the quote */
 }
 
-/*
-  Hidden element
-*/
-.hidden {
-  display: none;
-}
+/* --- final.html (Welcome Page) Styles --- */
 
-/*
-  Links
-*/
-a {
-  color: #B07E6D; /* A soft, elegant link color */
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #8D6E63;
-  text-decoration: underline;
-}
-
-/*
-  Final Page Specific Styles (final.html)
-*/
 .final-page-heading {
-  text-align: center;
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
 }
 
 .grupo-link {
-  display: block;
-  text-align: center;
-  font-size: 1.4em;
-  font-weight: bold;
-  background-color: #B07E6D; /* Use a button style with the same color palette */
-  color: white;
-  padding: 15px 30px;
+  display: inline-block;
+  background-color: #ffc107; /* A bright gold for a pop of color */
+  color: #212529;
+  padding: 15px 40px;
   border-radius: 50px;
   margin: 30px 0;
   text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .grupo-link:hover {
-  background-color: #8D6E63;
+  background-color: #e0a800; /* Darker gold on hover */
   transform: translateY(-2px);
   text-decoration: none;
 }
 
-/*
-  Responsive adjustments
-*/
-@media (max-width: 600px) {
-  .container {
-    padding: 20px 15px;
-  }
+/* --- Other Utility Styles --- */
 
-  #titulo {
-    font-size: 2em;
-  }
-
-  #countdown {
-    font-size: 1.2em;
-  }
-
-  .grupo-link {
-    font-size: 1.2em;
-    padding: 12px 25px;
-  }
+.hidden {
+  display: none;
 }
+
+a {
+  color
