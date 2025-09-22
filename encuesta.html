@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuesta</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #mensaje-temporal, #mensaje-final {
+      display: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      min-height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Encuesta</h1>
+
+    <!-- Sustituye TU_FORM_ID por el ID real de tu formulario de Google Forms -->
+    	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf7Bdr0eGY878La0C3jJK1EoqvdSv_5mOCRqiiSHWti3SKFZw/viewform?embedded=true"
+            frameborder="0" marginheight="0" marginwidth="0">
+      Cargando…
+    </iframe>
+
+    <!-- Mensajes -->
+    <div id="mensaje-temporal">Analizando tu respuesta con inteligencia artificial...</div>
+    <div id="mensaje-final"></div>
+  </div>
+
+  <script>
+    // Opciones posibles para el mensaje final
+    const mensajes = [
+      "¡Increíble! Tu respuesta se acerca en un 62% con lo que hemos preparado para Rafa y Rosalía. Espero que no le hayas sonsacado nada a Carla durante la fiesta 🎉",
+      "️Vale, OK, es una buena idea, pero te has pasado tres pueblos. Tu respuesta tiene un mísero 3.2% de coincidencia con el plan. Tienes que currártelo un poco más",
+      "Estás de broma, ¿no? Vale, la idea es buena, y de hecho te acercas al 18%, pero no más 🚀",
+      "Bueno, bueno bueno, espectacular. Te has acercado un montón: 86.5% de coincidencia. Por favor, no les digas nada, que nos chafas la sorpresa, ¿vale? 📩"
+    ];
+
+    // Detectar cuando el formulario se envía
+    const iframe = document.querySelector("iframe");
+    iframe.addEventListener("load", () => {
+      try {
+        const url = iframe.contentWindow.location.href;
+        if (url.includes("formResponse")) {
+          // Ocultar formulario
+          iframe.style.display = "none";
+
+          // Mostrar mensaje temporal
+          const msgTemp = document.getElementById("mensaje-temporal");
+          const msgFinal = document.getElementById("mensaje-final");
+          msgTemp.style.display = "block";
+
+          // Pasados 5 segundos, mostrar mensaje aleatorio
+          setTimeout(() => {
+            msgTemp.style.display = "none";
+            msgFinal.style.display = "block";
+            msgFinal.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+          }, 5000);
+        }
+      } catch (e) {
+        console.warn("No se pudo acceder al contenido del iframe (posible restricción de Google Forms).");
+      }
+    });
+  </script>
+</body>
+</html>
