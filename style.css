@@ -1,14 +1,7 @@
-/*
-  This stylesheet uses a modern, elegant color palette with teal, gold, and dark gray.
-  The design is clean and focuses on readability and visual appeal.
-*/
-
-/* --- General Styles --- */
-
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #F7F9FC; /* A very light gray background */
-  color: #343a40; /* A dark gray for main text */
+  background-color: #F7F9FC;
+  color: #343a40;
   margin: 0;
   padding: 20px;
   display: flex;
@@ -28,77 +21,21 @@ body {
   border: 1px solid #e9ecef;
 }
 
-/* --- Typography --- */
-
-h1, h2, h3 {
-  font-family: 'Georgia', serif; /* A classic serif font */
-  color: #212529; /* A very dark gray for headings */
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    display: block;
+    min-height: unset;
+  }
+  .container {
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+  h1, h2, h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.6em;
+  }
 }
-
-p {
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-/* --- index.html (Countdown Page) Styles --- */
-
-#titulo {
-  font-size: 2.8em;
-  font-weight: bold;
-  color: #17a2b8; /* A vibrant teal */
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-#countdown {
-  font-size: 1.6em;
-  margin: 30px 0;
-  line-height: 1.5;
-  color: #495057;
-  white-space: pre-line;
-  font-weight: 500;
-}
-
-.quote {
-  display: block;
-  font-style: italic;
-  font-size: 1em;
-  margin-top: 20px;
-  color: #6c757d; /* A subtle gray for the quote */
-}
-
-/* --- final.html (Welcome Page) Styles --- */
-
-.final-page-heading {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.grupo-link {
-  display: inline-block;
-  background-color: #ffc107; /* A bright gold for a pop of color */
-  color: #212529;
-  padding: 15px 40px;
-  border-radius: 50px;
-  margin: 30px 0;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.grupo-link:hover {
-  background-color: #e0a800; /* Darker gold on hover */
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-/* --- Other Utility Styles --- */
-
-.hidden {
-  display: none;
-}
-
-a {
-  color
