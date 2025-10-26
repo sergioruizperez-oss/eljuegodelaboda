@@ -22,6 +22,7 @@ const options = [
 export default function App() {
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [cooldown, setCooldown] = useState(0);
+  const [now, setNow] = useState(new Date());
 
   useEffect(() => {
     const savedCooldown = localStorage.getItem('cooldown');
@@ -40,6 +41,7 @@ export default function App() {
           return 0;
         }
       });
+      setNow(new Date());
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -51,37 +53,39 @@ export default function App() {
     }
   };
 
-  const now = new Date();
   const unlockDate = new Date(Date.UTC(2025, 10, 9, 15, 0, 0));
 
   return (
-    <div className="container">
-      <h1>Hemos decidido colectivamente que no queremos haceros sufrir tanto, así que os vamos a decir el regalo.</h1>
-      <p>Las opciones que hemos barajado son las siguientes:</p>
-      <ul>
-        {shuffledOptions.map((option) => {
-          const isOption14 = option.id === 14;
-          const isUnlocked = !isOption14 || now >= unlockDate;
-          return (
-            <li key={option.id} className={isOption14 && isUnlocked ? "highlighted" : ""}>
-              {isUnlocked ? (
-                <Link
-                  to={`/option/${option.id}`}
-                  onClick={handleClick}
-                  className={cooldown > 0 ? 'disabled' : ''}
-                >
-                  {option.title}
-                </Link>
-              ) : (
-                <span className="disabled">Opción secreta (disponible el 9 de noviembre a las 15:00)</span>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-      {cooldown > 0 && (
-        <p className="cooldown">Debes esperar {Math.floor(cooldown / 3600)}h {Math.floor((cooldown % 3600) / 60)}m para volver a elegir.</p>
-      )}
+    <div className="page">
+      <div className="container">
+        <h1>Bueno, después de la consulta popular hemos decidido colectivamente que no queremos haceros sufrir tanto...</h1>
+        <p>Así que os vamos a decir cuál es el regalo. Las opciones que habíamos barajado eran las siguientes:</p>
+        <div className="options">
+          {shuffledOptions.map(option => {
+            const isOption14 = option.id === 14;
+            const isUnlocked = !isOption14 || now >= unlockDate;
+
+            if (isOption14 && !isUnlocked) return null;
+
+            return (
+              <Link
+                key={option.id}
+                to={`/option/${option.id}`}
+                onClick={handleClick}
+                className={`option-btn ${isOption14 ? 'highlighted' : ''} ${cooldown > 0 ? 'disabled' : ''}`}
+              >
+                {option.title}
+              </Link>
+            );
+          })}
+        </div>
+        {cooldown > 0 && (
+          <p className="cooldown">
+            Vaya, pues resulta que tampoco era ese el regalo. Pero no os preocupéis, podréis elegir otra opción pronto, exactamente en {Math.floor(cooldown / 3600)}h {Math.floor((cooldown % 3600) / 60)}m.  
+            Podéis verlo como una especie de calendario de adviento digital-bodil. ¡Buena suerte!
+          </p>
+        )}
+      </div>
     </div>
   );
 }
